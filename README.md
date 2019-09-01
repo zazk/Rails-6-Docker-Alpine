@@ -1,13 +1,25 @@
 # Rails 6 Docker Alpine
+Docker image size
+
+```sh
+$ docker images
+REPOSITORY                                 TAG                       SIZE
+blitz_web                                  latest                    390MB
+
+```
 
 ### Steps
 
 1. Clone & Create
 
+```sh
+git clone git@github.com:zazk/Rails-6-Docker-Alpine.git
+```
+
 Create a new Rails application under the repository directory
 
 ```sh
-cd rails6-docker-alpine
+cd Rails-6-Docker-Alpine
 rails new . --webpack --database=postgresql
 ```
 
