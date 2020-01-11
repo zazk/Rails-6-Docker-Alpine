@@ -4,10 +4,16 @@ services:
     image: postgres:11.1-alpine
   web:
     build: .
-    command: bin/rails s -p 3000 -b '0.0.0.0'
+    command: 'puma -C config/puma.rb'
     volumes:
       - .:/usr/src/app
+      - bundle_path:/bundle
+    environment:
+      - BUNDLE_PATH=/bundle/vendor
     ports:
       - "3000:3000"
     depends_on:
       - db
+
+volumes:
+  bundle_path: 

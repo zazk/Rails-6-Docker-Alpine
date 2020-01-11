@@ -1,4 +1,4 @@
-FROM ruby:2.5.3-alpine3.8
+FROM ruby:alpine3.11
 LABEL maintainer="juandedioz@gmail.com"
 
 # Minimal requirements to run a Rails app
@@ -23,3 +23,5 @@ RUN bundle install
 # Copy the application into the container
 COPY . APP_PATH
 EXPOSE 3000
+
+CMD ["puma", "-C", "config/puma.rb"]
