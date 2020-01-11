@@ -69,7 +69,28 @@ Visit your application
 http://localhost:3000
 ```
 
+### Gems installation
+A dedicated volume which only holds the gems have been implemented in `docker-compose.yml`
+Instead of building the container every time you add/remove a gem which install a fresh all the gems, you can reuse the stored ones.This helps speeding up development since rebuilding is time consuming.
+
+To install the gems in the cache volume.
+```
+docker-compose run web bundle install
+```
+When you add/remove a gem, bring down the containers first
+```
+docker-compose down
+```
+Then install
+```
+docker-compose run web bundle install
+```
+And bring the containers up
+```
+docker-compose up
+```
+
 ### Troubleshooting
 
-1. If you have probles with `pg` gem you should install Postgres before. On Mac `brew install postgres`
+1. If you have problems with `pg` gem you should install Postgres before. On Mac `brew install postgres`
 2. Ruby Version `2.5.3`
