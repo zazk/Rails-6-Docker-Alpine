@@ -21,5 +21,5 @@ RUN gem install bundler -v 2.0.2
 RUN gem list bundler
 RUN bundle install
 # Copy the application into the container
-COPY . APP_PATH
+COPY . $APP_PATH
 EXPOSE 3000
